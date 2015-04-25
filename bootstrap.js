@@ -3,7 +3,7 @@
 Components.utils.import("resource://gre/modules/Services.jsm");
 
 const name = 'browser.feeds.handlers.application';
-const value = '/add_akregator_feed_firefox.sh';
+const value = '/Akregator';
 
 // Add script to preferences
 function integrateAkregator(path) {
