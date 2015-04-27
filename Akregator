@@ -1,17 +1,17 @@
-#!/bin/bash
+#!/bin/sh
 #
 # Subscribe feeds in akregator from firefox
 #
-# Script by bcooksley
+# Original script by bcooksley
 # https://forum.kde.org/viewtopic.php?f=18&t=111965
 #
 
-if [[ -z `pidof akregator` ]]; then
-   akregator
-fi
+pidof 'akregator' || akregator --hide-mainwindow
 
-for url in "$@"; do
-   actualUrl=${url/feed/http}
-   actualUrl=${actualUrl/http:https/https}
-   qdbus org.kde.akregator /Akregator org.kde.akregator.part.addFeedsToGroup "$actualUrl" "Imported Feeds"
+for url; do
+    url="${url#feed://}"
+    url="${url#feed:}"      # For https links (feed:https://)
+
+    qdbus org.kde.akregator /Akregator org.kde.akregator.part.addFeedsToGroup "$url" "Imported Feeds"
 done
+
