@@ -17,7 +17,7 @@ function reset() {
 }
 
 function startup(data, reason) {
-    if (reason == ADDON_ENABLE || reason == ADDON_UPGRADE || reason == ADDON_DOWNGRADE) {
+    if (reason == ADDON_ENABLE) {
         var path = data.installPath.path;
         integrateAkregator(path);
     }
