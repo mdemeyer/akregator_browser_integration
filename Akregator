@@ -6,7 +6,7 @@
 # https://forum.kde.org/viewtopic.php?f=18&t=111965
 #
 
-if [ ! $(which akregator) ]; then
+if [ ! "$(which akregator 2> /dev/null)" ]; then
     title='Firefox Webfeeds'
     message='Akregator is not installed.'
 
@@ -18,10 +18,17 @@ fi
 
 pidof 'akregator' || akregator --hide-mainwindow
 
+group_name='Imported Feeds'
 for url; do
     url="${url#feed://}"
     url="${url#feed:}"      # For https links (feed:https://)
 
-    qdbus org.kde.akregator /Akregator org.kde.akregator.part.addFeedsToGroup "$url" "Imported Feeds"
+    if [ "$(which qdbus 2> /dev/null)" ]; then
+        qdbus org.kde.akregator /Akregator \
+            org.kde.akregator.part.addFeedsToGroup \
+            "$url" "$group_name"
+    else
+        akregator --addfeed "$url" --group "$group_name"
+    fi
 done
 
