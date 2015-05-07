@@ -11,7 +11,7 @@
         <em:name>Akregator Integration</em:name>
 
         <!-- Optional properties -->
-        <em:description>Open webfeeds with Akregator.</em:description>
+        <em:description>Open web feeds with Akregator.</em:description>
         <em:creator>Maarten De Meyer</em:creator>
         <em:developer>bcooksley</em:developer>
         <em:homepageURL>http://kde-apps.org/content/show.php/?content=163096</em:homepageURL>
@@ -29,6 +29,15 @@
         <em:targetPlatform>FreeBSD</em:targetPlatform>
         <em:targetPlatform>OpenBSD</em:targetPlatform>
         <em:targetPlatform>NetBSD</em:targetPlatform>
+
+        <!-- Localization -->
+        <em:localized>
+            <Description>
+                <em:locale>nl</em:locale>
+                <em:name>Akregator Integratie</em:name>
+                <em:description>Open webfeeds met Akregator.</em:description>
+            </Description>
+        </em:localized>
 
         <!-- Remove this later (read docs) -->
         <em:multiprocessCompatible>true</em:multiprocessCompatible>
