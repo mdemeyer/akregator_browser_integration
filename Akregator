@@ -2,10 +2,13 @@
 #
 # Subscribe feeds in akregator from firefox
 #
+# Copyright (C) 2015 De Meyer Maarten <de.meyer.maarten@gmail.com>
+#
 # Original script by bcooksley
 # https://forum.kde.org/viewtopic.php?f=18&t=111965
 #
 
+# Make sure Akregator is installed
 if [ ! "$(which akregator 2> /dev/null)" ]; then
     title='Firefox Webfeeds'
     message='Akregator is not installed.'
@@ -16,13 +19,17 @@ if [ ! "$(which akregator 2> /dev/null)" ]; then
     exit 1
 fi
 
+# Make sure Akregator is started
 pidof 'akregator' || akregator --hide-mainwindow
 
 group_name='Imported Feeds'
 for url; do
+    # Remove 'feed://' protocol (needed for older Akregator versions)
     url="${url#feed://}"
     url="${url#feed:}"      # For https links (feed:https://)
 
+    # Add the feed using dbus if possible
+    # Use addfeed as fallback
     if [ "$(which qdbus 2> /dev/null)" ]; then
         qdbus org.kde.akregator /Akregator \
             org.kde.akregator.part.addFeedsToGroup \
