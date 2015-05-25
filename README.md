@@ -10,14 +10,14 @@
 Use this option when developing on the extension.
 Create an extension package.
 ```
-zip * akregator_integration.xpi
+zip akregator_browser_integration.xpi *
 ```
 
 Go to _about:addons_ and choose _install from file_.
 
 ### extension
 This is the easiest and recommended installation.
-Go to _site_ and click _Add to Firefox_
+Go to [Firefox Addons](https://addons.mozilla.org/nl/firefox/addon/akregator-integration/) and click _Add to Firefox_
 
 ### manual
 Use this if you don't want the extension.
