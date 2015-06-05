@@ -5,7 +5,7 @@
         <!-- Required properties -->
         <em:id>akregator_integration@mdemeyer.be</em:id>
         <em:type>2</em:type>
-        <em:version>0.1</em:version>
+        <em:version>0.2</em:version>
         <em:bootstrap>true</em:bootstrap>
         <em:unpack>true</em:unpack>
         <em:name>Akregator Integration</em:name>
